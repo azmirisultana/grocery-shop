@@ -44,7 +44,6 @@
 
         }
 
-
         .sora-font {
             font-family: "Sora", serif;
             font-optical-sizing: auto;
@@ -57,6 +56,73 @@
             font-optical-sizing: auto;
             /* font-weight: 400; */
             font-style: normal;
+
+        }
+
+        .banner {
+            position: relative;
+            overflow: hidden;
+            background-image: linear-gradient(rgb(255, 255, 255), rgb(255, 221, 154));
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding-top: 2.5rem;
+            /* pt-10 */
+            gap: 1.25rem;
+            /* gap-5 */
+        }
+
+        .banner::before,
+        .banner::after {
+            content: '';
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: rgba(23, 152, 0, 0.1);
+            border-radius: 50%;
+            animation: moveBlobs 5s ease-in-out infinite;
+            z-index: 0;
+        }
+
+        .banner::before {
+            top: -50px;
+            left: -50px;
+            animation-delay: 0s;
+        }
+
+        .banner::after {
+            bottom: -50px;
+            right: -50px;
+            animation-delay: 4s;
+        }
+
+        @keyframes moveBlobs {
+
+            0%,
+            100% {
+                transform: translate(0, 0) scale(1);
+            }
+
+            50% {
+                transform: translate(20px, 20px) scale(1.2);
+            }
+        }
+
+        @media screen and (max-width: 640px) {
+            .newsletter-content{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                justify-items: center;
+                align-items: center;
+            } 
+
+            .banner-heading{
+                width: 350px;
+            }
         }
     </style>
 
@@ -113,20 +179,19 @@
                 </div>
             </div>
         </nav>
-
-
     </header>
     <main>
 
         <!-- banner -->
-        <div class="banner flex flex-col items-center pt-10 gap-5 sm:flex flex-col ">
-            <h3 class="sora-font font-semibold text-center text-[32px] sm:text-[60px]">
-                Freshness <span class="text-[rgb(23,152,0)]">You Can Count</span> On, Prices You'll Love!
+
+        <div class="banner flex flex-col items-center pt-10 gap-5 sm:flex flex-col">
+            <h3 class="banner-heading sora-font font-semibold text-center text-[32px] sm:text-[60px] typewriter">
+                Freshness <span class="text-[rgb(23,152,0)]">You Can <br>Count</span> On, Prices You'll Love!
             </h3>
 
             <p class="text-center text-[rgb(17,17,17)] text-base px-6 md:text-[20px] md:px-0">
-                Shop your daily essentials at unbeatable prices. From fresh produce to pantry <br>staples, we've got you
-                covered every day!
+                Shop your daily essentials at unbeatable prices. From fresh produce to pantry <br> staples, we've got
+                you covered every day!
             </p>
 
             <img class="w-full px-4 md:px-0 md:w-[1031px] md:h-[838px]" src="assets/hero-vegetables.png" alt="">
@@ -135,7 +200,8 @@
 
         <!-- services -->
         <div class="pt-8 md:pt-20 px-4 md:px-15 pb-10">
-            <h3 class="text-[rgb(23,152,0)] font-semibold text-[24px] md:text-[36px] pb-5 md:pl-10">Services</h3>
+            <h3 class="text-[rgb(23,152,0)] lg:ml-[45px] font-semibold text-[24px] md:text-[36px] pb-5 md:pl-10">
+                Services</h3>
 
             <div class="flex flex-col md:flex-row items-center md:justify-center gap-6 md:gap-20">
                 <!-- 24/7 Services Card -->
@@ -156,8 +222,7 @@
                         <img src="assets/delivery.png" alt="">
                     </div>
                     <h4 class="font-semibold text-2xl">Fast Delivery</h4>
-                    <p class="text-[rgb(17,17,17)]/[0.7]">Your order? Already on the way. Our delivery is faster than
-                        the AI drama moves!</p>
+                    <p class="text-[rgb(17,17,17)]/[0.7]">Your order? Already on the way. Our delivery is faster than your Wi-Fi!</p>
                 </div>
 
                 <!-- Healthy Products Card -->
@@ -173,15 +238,13 @@
             </div>
         </div>
 
-
-
         <br>
         <br>
 
-        <!-- Desktop Version: promo card+ 9 small cards -->
+        <!-- web: promo card+ 9 small cards -->
         <div class="hidden md:block">
             <!-- Popular Products Section -->
-            <div class="bg-[#EFEBE3] pb-30 px-15">
+            <div class="bg-[rgb(239,235,227)] pb-30 px-15">
                 <h3 class="font-bold text-[36px] text-[#1fb404] px-8 pt-15">Popular Products</h3>
                 <br>
                 <br>
@@ -195,7 +258,6 @@
                             <p class="text-black/[0.7]">Fresh vegetables produced by our local farmers.</p>
                             <button class="bg-white text-black w-40 h-12 px-5 py-1 rounded-lg text-xl">Buy Now</button>
                         </div>
-                        <!-- Banana Image -->
                         <div class="relative">
                             <div class="static mb-[36px] ml-[5px] mr-[-140px] mt-[-59px] justify-end">
                                 <img src="assets/vegetable-offer.png" alt="Vegetable Offer">
@@ -399,19 +461,19 @@
             </div>
         </div>
 
-        <!-- Mobile Version: Promo Card + 8 Small Cards -->
-        <div class="block md:hidden">
+        <!-- Mobile: Promo Card + 8 Small Cards -->
+        <div class="bg-[rgb(239,235,227)] block md:hidden pb-10">
             <h3 class="font-bold text-[36px] text-[#1fb404] px-8 pt-15">Popular Products</h3>
 
             <!-- Promo Card -->
             <div
                 class="promo-card text-white flex flex-col justify-center items-start rounded-lg p-5 relative mx-4 mt-4">
+
                 <div class="flex flex-col gap-4 pt-20 pl-5">
                     <h3 class="text-2xl font-bold">30% Off</h3>
                     <p class="text-black/70 text-sm">Fresh vegetables produced by our local farmers.</p>
                     <button class="bg-white text-black w-32 h-10 px-4 py-1 rounded-lg text-base">Buy Now</button>
                 </div>
-                <!-- Banana Image -->
                 <div class="absolute bottom-0 right-0">
                     <img src="assets/vegetable-offer.png" alt="Vegetable Offer" class="w-28">
                 </div>
@@ -592,16 +654,17 @@
         <br>
         <br>
 
-        <!-- new offer -->
+        <!-- arrival and offers -->
         <div>
-            <h2 class="sora-font text-[rgb(23,152,0)] text-4xl font-semibold px-4 text-center sm:text-left sm:px-15">
+            <h2
+                class="sora-font text-[rgb(23,152,0)] text-4xl font-semibold px-4 text-center lg:pl-10 sm: flex text-left justify-left items-left">
                 Arrival & Offers</h2>
             <!-- cards container -->
             <div
-                class="grid grid-cols-1 sm:grid-cols-2 justify-center items-center text-center gap-8 text-white m-4 sm:m-10">
+                class="grid grid-cols-1 sm:grid-cols-7 justify-center items-center text-center gap-8 text-white m-4 sm:m-10">
                 <!-- green big card -->
                 <div
-                    class="col-span-1 sm:col-span-1 flex flex-row bg-[rgb(17,84,20)] h-auto sm:h-[280px] rounded-3xl justify-between items-center text-center gap-5 p-4 sm:p-0 w-full">
+                    class="col-span-1 sm:col-span-4 flex flex-row bg-[rgb(17,84,20)] h-auto sm:h-[280px] rounded-3xl justify-between items-center text-center gap-5 p-4 sm:p-0 w-full">
                     <!-- logo, text, button (left side) -->
                     <div class="flex flex-col gap-5 sm:pl-10 sm:pt-10 sm:pb-10">
                         <div><img class="w-[200px] h-[60px]" src="assets/dawat-logo.png" alt=""></div>
@@ -611,14 +674,14 @@
                     </div>
                     <!-- daawat img (right side) -->
                     <div class="sm:pr-10">
-                        <img class="w-[150px] h-[150px] sm:w-[200px] sm:h-[200px]" src="assets/dawat-mock-up.png"
+                        <img class="w-[160px] h-[200px] sm:w-[230px] sm:h-[225px]" src="assets/dawat-mock-up.png"
                             alt="">
                     </div>
                 </div>
 
                 <!-- blue small card -->
                 <div
-                    class="poppins-font col-span-1 sm:col-span-1 flex flex-row bg-[rgb(16,40,97)] h-auto sm:h-[280px] rounded-3xl justify-between items-center text-center gap-10 p-4 sm:p-0 w-full">
+                    class="poppins-font col-span-1 sm:col-span-3 flex flex-row bg-[rgb(16,40,97)] h-auto sm:h-[280px] rounded-3xl justify-between items-center text-center gap-10 p-4 sm:p-0 w-full">
                     <!-- logo, text button (left side) -->
                     <div class="flex flex-col gap-3 sm:pl-10 sm:pt-10 sm:pb-10">
                         <img class="w-[80px] h-[100px]" src="assets/india-gate-logo.png" alt="">
@@ -627,13 +690,12 @@
                     </div>
                     <!-- india gate img (right side) -->
                     <div class="sm:pr-10">
-                        <img class="w-[150px] h-[150px] sm:w-[200px] sm:h-[200px]" src="assets/india-gate-mock-up.png"
-                            alt="">
+                        <img class="w-[100px] h-[200px] mx-10 sm:w-[140px] sm:h-[210px]"
+                            src="assets/india-gate-mock-up.png" alt="">
                     </div>
                 </div>
             </div>
         </div>
-
         <!-- FAQ section -->
 
         <section class="poppins-font py-10 bg-gray-100/[0.5]">
@@ -682,7 +744,7 @@
                 <!-- faq 4-->
                 <details class="bg-white rounded-md p-5 shadow-md">
                     <summary class="flex justify-between items-center font-semibold text-xl list-none">Do you have
-                        discounts?
+                        discount codes?
                         <svg class="h-6 w-6 transform transition-transform duration-300 group-open:rotate-180"
                             fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
@@ -710,12 +772,13 @@
         <br>
 
         <!-- Newsletter Section -->
-        <section class="relative z-20">
-            <div class="bg-[#EFEBE3] mx-auto p-6 md:p-10 rounded-2xl flex flex-col items-center md:flex-row md:items-start 
-                w-full max-w-5xl h-auto md:h-[400px] mb-[-80px] md:mb-[-205px]">
+        <section class="news relative z-20">
+            <div class="newsletter-container bg-[#EFEBE3] mx-auto p-6 md:p-10 rounded-2xl flex flex-col items-center md:flex-row md:items-start 
+                w-full max-w-5xl h-auto md:h-[400px] mb-[-80px] md:mb-[-205px] lg:w-full">
                 <img src="assets/vegetable-busket.png" alt="Vegetable Basket" class="w-2/3 md:w-1/2 object-contain">
                 <!-- Newsletter Content -->
-                <div class="  flex flex-col justify-center items-center gap-4 md:gap-5 py-6 md:py-20 w-full md:w-auto">
+                <div
+                    class="newsletter-content flex flex-col items-left gap-4 md:gap-5 py-6 md:py-20 w-full md:w-auto md:items-left sm:justify-left ">
                     <h3
                         class="font-semibold text-2xl md:text-[36px] text-center md:text-left text-green-600 md:text-black">
                         Get Grocery News!
@@ -737,25 +800,25 @@
         <!-- Footer Section -->
         <footer class="relative">
             <div
-                class="bg-green-700 flex flex-col md:flex-row text-white px-6 md:px-30 pt-20 md:pt-80 pb-10 justify-between">
+                class="bg-green-700 flex flex-col justify-between px-[100px] md:flex-row text-white px-6 md:px-30 pt-20 md:pt-80 pb-10 justify-between">
                 <!-- left column logo -->
                 <div class="flex flex-col gap-4 md:gap-[20px] items-left md:items-start text-left md:text-left pt-5 ">
                     <div class="flex flex-col gap-5 mb-10">
                         <img class="w-32 md:w-[154px] h-auto md:h-[60px]" src="assets/logo-footer.png" alt="Logo">
-                        <p class="w-full font-normal text-sm md:text-[20px]">
+                        <p class=" font-normal text-sm md:text-[20px]">
                             Fresh produced vegetables right off <br> the farmers market to you just in 30 minutes
                         </p>
                     </div>
                 </div>
                 <!-- middle column -->
                 <div
-                    class="flex flex-col font-normal text-sm md:text-[20px] gap-4 md:gap-[32px] mt-6 md:mt-0 items-left md:items-start">
+                    class="flex flex-col font-normal  text-sm md:text-[20px] gap-4 md:gap-[32px] mt-6 md:mt-0 items-left md:items-start">
                     <a href="#">Product</a>
                     <a href="#">Services</a>
                     <a href="#">Contact Us</a>
                 </div>
                 <!-- socials -->
-                <div class="flex flex-col gap-3 mt-6 md:mt-0 items-left md:items-start">
+                <div class="flex flex-col gap-3 mt-6 pt-16 md:mt-0 items-left md:items-start">
                     <h4 class="font-medium text-xs md:text-[16px]">Follow Us</h4>
                     <div class="flex flex-row gap-4">
                         <!-- icon 1 fb -->
@@ -795,6 +858,4 @@
             </div>
         </footer>
 </body>
-
-
 </html>
